@@ -1,25 +1,74 @@
-package com.epam.jwd.rail_transport.main;
+package main.java.com.epam.jwd.main;
 
-import com.epam.jwd.rail_transport.comparator.ComfortClassComparator;
-import com.epam.jwd.rail_transport.entity.carriage.PassengerCarriage;
-import com.epam.jwd.rail_transport.entity.locomotive.Locomotive;
-import com.epam.jwd.rail_transport.entity.locomotive.LocomotiveTypes;
-import com.epam.jwd.rail_transport.entity.train.PassangerTrain;
-import com.epam.jwd.rail_transport.search.CarriageSearch;
+import main.java.com.epam.jwd.comparator.ComfortClassComparator;
+import main.java.com.epam.jwd.entity.carriage.PassengerCarriage;
+import main.java.com.epam.jwd.entity.locomotive.Locomotive;
+import main.java.com.epam.jwd.entity.locomotive.LocomotiveTypes;
+import main.java.com.epam.jwd.entity.train.PassangerTrain;
+import main.java.com.epam.jwd.search.CarriageSearch;
 
 public class Main {
 
     public  static void main(String[] args) {
         //train creation
-        PassangerTrain passangerTrain = new PassangerTrain(110, new Locomotive("TG102", LocomotiveTypes.DIESEL, 3280, 168, 1520));
+        PassangerTrain passangerTrain = new PassangerTrain(110,
+                new Locomotive("TG102",
+                        LocomotiveTypes.DIESEL,
+                        3280,
+                        168,
+                        1520));
 
         //carriages adding
-        passangerTrain.add(new PassengerCarriage("61-4476", 28, 28, 36, 120, 1, 1520));
-        passangerTrain.add(new PassengerCarriage("61-4170", 30, 26, 54, 100, 2, 1520));
-        passangerTrain.add(new PassengerCarriage("61-4476", 28, 28, 36, 120, 1, 1520));
-        passangerTrain.add(new PassengerCarriage("61-4140", 31, 29, 60, 100, 2, 1520));
-        passangerTrain.add(new PassengerCarriage("61-4462", 26, 30, 52, 100, 2, 1520));
-        passangerTrain.add(new PassengerCaFFrriage("61-4193", 29, 32, 40, 150, 1, 1520));
+        passangerTrain.add(new PassengerCarriage("61-4476",
+                28,
+                28,
+                36,
+                120,
+                1,
+                1520));
+        passangerTrain.add(new PassengerCarriage("61-4170",
+                30,
+                26,
+                54,
+                100,
+                2,
+                1520));
+        passangerTrain.add(new PassengerCarriage("61-4476",
+                28,
+                28,
+                36,
+                120,
+                1,
+                1520));
+        passangerTrain.add(new PassengerCarriage("61-4140",
+                31,
+                29,
+                60,
+                100,
+                2,
+                1520));
+        passangerTrain.add(new PassengerCarriage("61-4462",
+                26,
+                30,
+                52,
+                100,
+                2,
+                1520));
+        passangerTrain.add(new PassengerCarriage("61-4193",
+                29,
+                32,
+                40,
+                150,
+                1,
+                1520));
+        passangerTrain.add(new PassengerCarriage("61-4193",
+                29,
+                32,
+                40,
+                150,
+                1,
+                1520));
+
 
         int carriageCount = 0;
         int passengerCount = 0;
@@ -34,8 +83,12 @@ public class Main {
 
         //train carriages count, passengers count, cargo capacity output
         System.out.println("Train has " + carriageCount + " wagons.");
-        System.out.println("Train has maximum " + passengerCount + " passangers capacity.");
-        System.out.println("Train has maximum " + cargoCapacity + " kg cargo capacity.");
+        System.out.println("Train has maximum " +
+                            passengerCount +
+                            " passangers capacity.");
+        System.out.println("Train has maximum " +
+                            cargoCapacity +
+                            " kg cargo capacity.");
 
         //train's carriages sorting by comfort class
         passangerTrain.getCarriages().sort(new ComfortClassComparator());
@@ -48,7 +101,10 @@ public class Main {
 
         //search and output train's carriages in given passengers count range
         System.out.println("\nCarriages search by passengers count from 20 to 50:");
-        for (PassengerCarriage pc : CarriageSearch.searchByPassengersCount(passangerTrain, 20, 50)) {
+        for (PassengerCarriage pc : CarriageSearch.searchByPassengersCount(
+                passangerTrain,
+                20,
+                50)) {
             System.out.println(pc.toString());
         }
 
